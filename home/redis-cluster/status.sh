@@ -1,1 +1,1 @@
-/home/redis/src/redis-cli -p 13301 cluster nodes
+/home/redis-cluster/redis/src/redis-cli -p 13301 cluster nodes
