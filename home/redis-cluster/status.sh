@@ -1,2 +1,3 @@
 #!/bin/bash
-/home/redis-cluster/redis/src/redis-cli -p 13301 cluster nodes
+. ./conf/redis-cluster.conf
+${redis_cluster_work_base}/src/redis-cli -p 13301 cluster nodes
