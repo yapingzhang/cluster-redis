@@ -18,8 +18,11 @@ for ((i=0;i<${redis_cluster_node_count};i++)); do
 #    sed -i -e '/include/a '"${redis_cluster_work_base}"'/redis.conf' ${node_conf}
 #    sed -i -e '/port/a '"${node_port}"'' ${node_conf}
 #    sed -i -e '/pidfile/a '"${node_dir}"'/redis.pid' ${node_conf}
-    sed -i -e '$a include '"${redis_cluster_work_base}"'/redis.conf \n port '"${node_port}"' \n pidfile '"${node_dir}"'/redis.pid' ${node_conf}
-
+#    sed -i -e '1a include '"${redis_cluster_work_base}"'/redis.conf \nport '"${node_port}"' \npidfile '"${node_dir}"'/redis.pid' ${node_conf}
+    sed -i -e 's/#include/include '"${redis_cluster_work_base}"'/redis.conf/g' ${node_conf}
+    sed -i -e 's/#port/'"${node_port}"'/g' ${node_conf}
+    sed -i -e 's/#pidfile/'"${node_dir}"'/redis.pid/g' ${node_conf}
+    sed -i -e 's/#dir/'"${node_dir}"'/redis.pid/g' ${node_conf}
 done
 
 chown -R ${redis_cluster_user}:${redis_cluster_user} ${redis_cluster_base}/*
