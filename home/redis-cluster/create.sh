@@ -1,4 +1,4 @@
-/home/redis/src/redis-trib.rb create --replicas 1 \
+${redis_cluster_work_base}/src/redis-trib.rb create --replicas 1 \
 192.168.105.21:13300 \
 192.168.105.22:13300 \
 192.168.105.21:13301 \
