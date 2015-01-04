@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "初始化redis集群"
 redis_cluster_base=$(cd `dirname $0`; pwd)
 . ${redis_cluster_base}/conf/redis-cluster.conf
 
